@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="col-xs-12">
+        <h1>Current Conditions</h1>
+        <h2>{{model.location.name}}</h2>
+        <p>{{model.location.currentForecast.temperature}}&deg;</p>
+        <p>{{model.location.currentForecast.summary}}</p>
+    </div>
+    <table class="table daily-table">
+        <tbody>
+            {{#each model.location.dailyForecast as |day| }}
+                <tr>
+                    <td>{{format-day day.time}}</td>
+                    <td>{{day.temperatureMin}}&deg;</td>
+                    <td>{{day.temperatureMax}}&deg;</td>
+                    <td>{{day.summary}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

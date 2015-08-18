@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="col-xs-5 col-xs-offset-3">
+        <form class="form-horizontal" {{action 'authenticate' on='submit'}}>
+          <label for="identification">Login</label>
+          {{input class="form-control" value=identification placeholder='Enter Login'}}
+          <label for="password">Password</label>
+          {{input class="form-control" value=password placeholder='Enter Password' type='password'}}
+          <br />
+          <button class="btn btn-success" type="submit">Login</button>
+        </form>
+    </div>
+</div>

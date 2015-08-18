@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-9">
+            <h1>Current Conditions</h1>
+            <h2>{{model.location.name}}</h2>
+            <p>{{model.location.currentForecast.temperature}}&deg;</p>
+            <p>{{model.location.currentForecast.summary}}</p>
+        </div>
+        <div class="col-xs-3">
+            {{!-- <button class="btn btn-default" {{action "favorite" model.location }}>fav</button> --}}
+            <button type="button" class="btn btn-info pull-right" {{action "favorite" model.location }}>
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>Add to favorites
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table daily-table">
+            <tbody>
+                {{#each model.location.dailyForecast as |day| }}
+                    <tr>
+                        <td>{{format-day day.time}}</td>
+                        <td>{{day.temperatureMin}}&deg;</td>
+                        <td>{{day.temperatureMax}}&deg;</td>
+                        <td>{{day.summary}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
